@@ -37,7 +37,7 @@ class LineUp {
 
     }
 
-    fun getMidfields(): List<Player> {
+    fun getMidfielders(): List<Player> {
 
         val fromIndex = numGoalkeepers + tactic.getNumDefenders()
         return lineUp.subList(fromIndex, fromIndex + tactic.getNumMidfielders())
@@ -51,7 +51,25 @@ class LineUp {
 
     }
 
+    fun getMidfieldPoints(): Int {
 
+        return this.getMidfielders().stream().mapToInt{ x -> x.average }.sum()
+
+    }
+
+    fun getAttackPoints(): Int {
+
+        return this.getForwards().stream().mapToInt{ x -> x.average }.sum()
+
+    }
+
+    fun getDefensePoints(): Int {
+
+        return this.getDefenders().stream().mapToInt{ x -> x.average }.sum() +
+                this.getGoalKeeper().average
+
+
+    }
 
 
 }

@@ -24,7 +24,7 @@ class GetLineUpController(private val getLineUpUseCase: GetLineUpUseCase,
 
         result["goalkeeper"] = Collections.singletonList(this.playerDtoMapper(lineUp.getGoalKeeper()))
         result["defender"] = lineUp.getDefenders().map {  this.playerDtoMapper(it) }
-        result["midfielder"] = lineUp.getMidfields().map {  this.playerDtoMapper(it) }
+        result["midfielder"] = lineUp.getMidfielders().map {  this.playerDtoMapper(it) }
         result["forward"] = lineUp.getForwards().map {  this.playerDtoMapper(it) }
         return result
 
