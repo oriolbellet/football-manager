@@ -37,7 +37,7 @@ class Match() {
     fun play(matchPlayer: MatchPlayer) {
 
         if (this.isPlayed()) {
-            throw MatchException(MATCH_ALREADY_PLAYED, "")
+            throw MatchException(MATCH_ALREADY_PLAYED, "match with id $matchId already played")
         }
 
         this.score = matchPlayer.play(this.homeTeam.lineUp, this.awayTeam.lineUp)
