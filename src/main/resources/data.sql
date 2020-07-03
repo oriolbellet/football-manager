@@ -1,0 +1,63 @@
+INSERT INTO LINEUP (LINEUP_ID) VALUES ('0');
+INSERT INTO LINEUP (LINEUP_ID) VALUES ('1');
+
+INSERT INTO TEAM (TEAM_ID, name, line_up_lineup_id) VALUES ('0', 'FC Barcelona', '0');
+INSERT INTO TEAM (TEAM_ID, name, line_up_lineup_id) VALUES ('1', 'Real Madrid', '1');
+
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('0', 'Andoni Zubizarreta Urreta', 'Zubizarreta', 80, '0');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('1', 'Albert Ferrer Llopis', 'Ferrer', 84, '0');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('2', 'Josep Guardiola Sala', 'Guardiola', 83, '0');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('3', 'Guillermo Amor Martínez', 'Amor', 79, '0');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('4', 'Miguel Angel Nadal Homar', 'Nadal', 84, '0');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('5', 'José María Bakero Escudero', 'Bakero', 84, '0');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('6', 'Jon Andoni Goikoetxea Lasa', 'Goikoetxea', 79, '0');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('7', 'Hristo Stoichkov', 'Stoichkov', 87, '0');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('8', 'Michael Laudrup', 'Laudrup', 88, '0');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('9', 'Romario Da Souza Faria', 'Romario', 88, '0');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('10', 'Enrique Estebaranz Lopez', 'Estebaranz', 86, '0');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('11', 'Julio Salinas Fernádez', 'Julio Salinas', 63, '0');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('12', 'Aitor Beguiristain Mújika', 'Beguiristain', 83, '0');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('13', 'Ronald Koeman', 'Koeman', 79, '0');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('14', 'Iván Iglesias Corteguera', 'Iván', 76, '0');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('15', 'Carles Busquets Barroso', 'Busquets', 74, '0');
+
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('25', 'Francisco Buyo Sánchez', 'Buyo', 83, '1');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('26', 'Claudeomir Vitor', 'Vitor', 84, '1');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('27', 'Luis Enrique Martínez García', 'Luis Enrique', 81, '1');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('28', 'Rafael Alkorta Martínez', 'Alkorta', 88, '1');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('29', 'Manuel Sanchís Hontiyuelo', 'Sanchís', 76, '1');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('30', 'Fernando Ruiz Hierro', 'Hierro', 66, '1');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('31', 'Emilio Butragueño Santos', 'Butragueño', 86, '1');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('32', 'J. Miguel González Martín', 'Míchel', 85, '1');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('33', 'Iván Luis Zamorano Zamora', 'Zamorano', 86, '1');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('34', 'Robert Prosinecki', 'Prosinecki', 86, '1');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('35', 'Rafael Martín Vázquez', 'Martín Vázquez', 86, '1');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('36', 'Alfonso Pérez Muñoz', 'Alfonso', 85, '1');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('37', 'Mikel Lasa Goikoetxea', 'Lasa', 77, '1');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('38', 'Peter Dubovsky', 'Dubovsky', 77, '1');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('39', 'Luis Milla Aspas', 'Milla', 72, '1');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('40', 'Pedro Luis Jaro Reguero', 'Jaro', 68, '1');
+
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('0', '0');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('0', '1');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('0', '2');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('0', '3');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('0', '4');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('0', '5');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('0', '6');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('0', '7');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('0', '8');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('0', '9');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('0', '10');
+
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('1', '25');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('1', '26');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('1', '27');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('1', '28');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('1', '29');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('1', '30');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('1', '31');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('1', '32');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('1', '33');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('1', '34');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('1', '35');
