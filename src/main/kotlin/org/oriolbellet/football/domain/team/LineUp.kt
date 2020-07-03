@@ -7,6 +7,11 @@ import javax.persistence.*
 @Table(name = "LINEUP")
 class LineUp {
 
+    @Transient
+    private val numGoalkeepers = 1
+    @Transient
+    private val numPlayersLineUp = 11
+
     @Id
     @Column(name = "LINEUP_ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,5 +19,39 @@ class LineUp {
 
     @OneToMany
     lateinit var lineUp: List<Player>
+
+    @Column(name = "TACTIC")
+    @Enumerated(EnumType.STRING)
+    lateinit var tactic: BasicTactics
+
+    fun getGoalKeeper(): Player {
+
+        return lineUp[0];
+
+    }
+
+    fun getDefenders(): List<Player> {
+
+        val fromIndex = numGoalkeepers
+        return lineUp.subList(fromIndex, fromIndex + tactic.getNumDefenders())
+
+    }
+
+    fun getMidfields(): List<Player> {
+
+        val fromIndex = numGoalkeepers + tactic.getNumDefenders()
+        return lineUp.subList(fromIndex, fromIndex + tactic.getNumMidfielders())
+
+    }
+
+    fun getForwards(): List<Player> {
+
+        val fromIndex = numGoalkeepers + tactic.getNumDefenders() + tactic.getNumMidfielders()
+        return lineUp.subList(fromIndex, numPlayersLineUp)
+
+    }
+
+
+
 
 }
