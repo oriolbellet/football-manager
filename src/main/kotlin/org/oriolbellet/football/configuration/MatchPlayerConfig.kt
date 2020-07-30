@@ -1,16 +1,17 @@
 package org.oriolbellet.football.configuration
 
-import org.oriolbellet.football.domain.match.MatchPlayer
-import org.oriolbellet.football.domain.match.RandomMatchPlayer
+import org.oriolbellet.football.domain.match.*
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import javax.inject.Inject
 
 @Configuration
-class MatchPlayerConfig {
+class MatchPlayerConfig(@Inject private val possessionCalculator: PossessionCalculator,
+                        @Inject private val attackSimulator: AttackSimulator) {
 
     @Bean
     fun matchPlayer(): MatchPlayer {
-        return RandomMatchPlayer()
+        return BasicMatchPlayer(this.possessionCalculator, this.attackSimulator)
     }
 
 }
