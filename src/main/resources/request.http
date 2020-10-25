@@ -1,0 +1,17 @@
+POST localhost:8080/football/api/v1/matches/2
+Content-Type: application/json
+
+###
+POST localhost:8080/football/api/v1/matches/
+Content-Type: application/json
+
+{
+  "homeTeamId":"0",
+  "awayTeamId":"1"
+}
+
+###
+GET localhost:8080/football/api/v1/teams
+Accept: application/json
+
+###
