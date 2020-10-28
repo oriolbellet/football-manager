@@ -14,7 +14,7 @@ class BasicMatchPlayer(val possessionCalculator: PossessionCalculator,
 
     private val numberOfAttacks = 10
 
-    override fun play(homeTeamLineUp: LineUp, awayTeamLineUp: LineUp): Score {
+    override fun  play(homeTeamLineUp: LineUp, awayTeamLineUp: LineUp): Score {
 
         var homeTeamGoals = 0
         var awayTeamGoals = 0
