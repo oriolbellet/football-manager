@@ -28,5 +28,18 @@ enum class BasicTactics : Tactic {
             return 2
         }
     },
+    T532 {
+        override fun getNumDefenders(): Int {
+            return 5
+        }
+
+        override fun getNumMidfielders(): Int {
+            return 3
+        }
+
+        override fun getNumForwards(): Int {
+            return 2
+        }
+    },
 
 }

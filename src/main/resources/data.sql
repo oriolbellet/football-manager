@@ -1,8 +1,12 @@
 INSERT INTO LINEUP (LINEUP_ID, TACTIC) VALUES ('0','T343');
 INSERT INTO LINEUP (LINEUP_ID, TACTIC) VALUES ('1','T442');
+INSERT INTO LINEUP (LINEUP_ID, TACTIC) VALUES ('2','T442');
+INSERT INTO LINEUP (LINEUP_ID, TACTIC) VALUES ('3','T532');
 
 INSERT INTO TEAM (TEAM_ID, name, line_up_lineup_id) VALUES ('0', 'FC Barcelona', '0');
 INSERT INTO TEAM (TEAM_ID, name, line_up_lineup_id) VALUES ('1', 'Real Madrid', '1');
+INSERT INTO TEAM (TEAM_ID, name, line_up_lineup_id) VALUES ('2', 'Deportivo', '2');
+INSERT INTO TEAM (TEAM_ID, name, line_up_lineup_id) VALUES ('3', 'Valencia CF', '3');
 
 INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('0', 'Andoni Zubizarreta Urreta', 'Zubizarreta', 80, '0');
 INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('1', 'Albert Ferrer Llopis', 'Ferrer', 84, '0');
@@ -38,6 +42,41 @@ INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('38', 'Pet
 INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('39', 'Luis Milla Aspas', 'Milla', 72, '1');
 INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('40', 'Pedro Luis Jaro Reguero', 'Jaro', 68, '1');
 
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('50', '', 'Liaño', 73, '2');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('51', '', 'Voro', 75, '2');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('52', '', 'Nando', 80, '2');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('53', '', 'Ribera', 69, '2');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('54', '', 'Djukic', 85, '2');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('55', '', 'Mauro Silva', 87, '2');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('56', '', 'Lopez Rekarte', 75, '2');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('57', '', 'Donato', 80, '2');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('58', '', 'Claudio', 76, '2');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('59', '', 'Fran', 87, '2');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('60', '', 'Bebeto', 86, '2');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('61', '', 'Jose Ramon', 72, '2');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('62', '', 'Mariano', 68, '2');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('63', '', 'Manjarin', 82, '2');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('64', '', 'Marcos Vales', 74, '2');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('65', '', 'Elduayen', 70, '2');
+
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('75', '', 'Sempere', 78, '3');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('76', '', 'Quique', 75, '3');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('77', '', 'Serer', 76, '3');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('78', '', 'Camarasa', 78, '3');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('79', '', 'Giner', 79, '3');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('80', '', 'Roberto', 78, '3');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('81', '', 'Arroyo', 77, '3');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('82', '', 'Mijatovic', 89, '3');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('83', '', 'Penev', 84, '3');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('84', '', 'Fernando', 80, '3');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('85', '', 'Pizzi', 78, '3');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('86', '', 'Galvez', 81, '3');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('87', '', 'Belodedici', 80, '3');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('88', '', 'Tomas', 76, '3');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('89', '', 'Alvaro', 77, '3');
+INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('90', '', 'Gonzalez', 75, '3');
+
+
 INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('0', '0');
 INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('0', '1');
 INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('0', '2');
@@ -61,3 +100,27 @@ INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('1', '
 INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('1', '33');
 INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('1', '34');
 INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('1', '35');
+
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('2', '50');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('2', '51');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('2', '52');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('2', '53');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('2', '54');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('2', '55');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('2', '56');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('2', '57');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('2', '58');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('2', '59');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('2', '60');
+
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('3', '75');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('3', '76');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('3', '77');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('3', '78');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('3', '79');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('3', '80');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('3', '81');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('3', '82');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('3', '83');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('3', '84');
+INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('3', '85');

@@ -6,8 +6,8 @@ POST localhost:8080/football/api/v1/matches/
 Content-Type: application/json
 
 {
-  "homeTeamId":"0",
-  "awayTeamId":"1"
+  "homeTeamId":"2",
+  "awayTeamId":"3"
 }
 
 ###
