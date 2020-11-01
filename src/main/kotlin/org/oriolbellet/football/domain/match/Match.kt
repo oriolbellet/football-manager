@@ -4,11 +4,16 @@ import org.oriolbellet.football.domain.match.MatchResult.*
 import org.oriolbellet.football.domain.team.Team
 import org.oriolbellet.football.error.ErrorCode.*
 import org.oriolbellet.football.error.MatchException
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import javax.persistence.*
 
 @Entity
 @Table(name = "MATCH")
 class Match() {
+
+    @Transient
+    private val logger: Logger = LoggerFactory.getLogger(Match::class.java.simpleName)
 
     @Id
     @Column(name = "MATCH_ID")
@@ -40,6 +45,8 @@ class Match() {
         if (this.isPlayed()) {
             throw MatchException(MATCH_ALREADY_PLAYED, "match with id $matchId already played")
         }
+
+        logger.info("Playing ${homeTeam.name} vs ${awayTeam.name} ...")
 
         this.score = matchPlayer.play(this.homeTeam.lineUp, this.awayTeam.lineUp)
 

@@ -6,14 +6,13 @@ import javax.inject.Inject
 import javax.inject.Named
 
 @Named
-class MatchDtoMapperImpl(@Inject private val teamDtoMapper: TeamDtoMapper,
-                         @Inject private val scoreDtoMapper: ScoreDtoMapper) : MatchDtoMapper {
+class MatchDtoMapperImpl(@Inject private val scoreDtoMapper: ScoreDtoMapper) : MatchDtoMapper {
 
     override fun invoke(input: Match): MatchDto {
 
         return MatchDto(input.matchId,
-                this.teamDtoMapper(input.homeTeam),
-                this.teamDtoMapper(input.awayTeam),
+                input.homeTeam.name,
+                input.awayTeam.name,
                 if (input.score != null) this.scoreDtoMapper(input.score!!) else null)
 
     }
