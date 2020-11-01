@@ -18,7 +18,7 @@ class StandingsCalculatorImpl : StandingsCalculator {
             standingRows.add(this.calculateStandingRow(it, gameWeeks))
         }
 
-        return standingRows.sortedBy { it.standingData }
+        return standingRows.sortedByDescending { it.standingData }
 
     }
 

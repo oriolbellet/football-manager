@@ -1,6 +1,7 @@
 package org.oriolbellet.football.domain.season
 
 import org.oriolbellet.football.domain.match.Match
+import org.oriolbellet.football.domain.match.MatchPlayer
 import javax.persistence.*
 
 @Entity
@@ -15,7 +16,11 @@ class GameWeek {
     @OneToMany
     lateinit var matches: Set<Match>
 
-    fun play() {
+    fun play(matchPlayer: MatchPlayer) {
+
+        this.matches.forEach {
+            it.play(matchPlayer)
+        }
 
     }
 
