@@ -124,3 +124,46 @@ INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('3', '
 INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('3', '83');
 INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('3', '84');
 INSERT INTO lineup_line_up (line_up_lineup_id, line_up_player_id) VALUES ('3', '85');
+
+INSERT INTO MATCH (MATCH_ID, HOME_TEAM_ID, AWAY_TEAM_ID) VALUES (0, '0', '1');
+INSERT INTO MATCH (MATCH_ID, HOME_TEAM_ID, AWAY_TEAM_ID) VALUES (1, '2', '3');
+INSERT INTO MATCH (MATCH_ID, HOME_TEAM_ID, AWAY_TEAM_ID) VALUES (2, '3', '0');
+INSERT INTO MATCH (MATCH_ID, HOME_TEAM_ID, AWAY_TEAM_ID) VALUES (3, '1', '2');
+INSERT INTO MATCH (MATCH_ID, HOME_TEAM_ID, AWAY_TEAM_ID) VALUES (4, '0', '2');
+INSERT INTO MATCH (MATCH_ID, HOME_TEAM_ID, AWAY_TEAM_ID) VALUES (5, '1', '3');
+INSERT INTO MATCH (MATCH_ID, HOME_TEAM_ID, AWAY_TEAM_ID) VALUES (6, '1', '0');
+INSERT INTO MATCH (MATCH_ID, HOME_TEAM_ID, AWAY_TEAM_ID) VALUES (7, '3', '2');
+INSERT INTO MATCH (MATCH_ID, HOME_TEAM_ID, AWAY_TEAM_ID) VALUES (8, '0', '3');
+INSERT INTO MATCH (MATCH_ID, HOME_TEAM_ID, AWAY_TEAM_ID) VALUES (9, '2', '1');
+INSERT INTO MATCH (MATCH_ID, HOME_TEAM_ID, AWAY_TEAM_ID) VALUES (10, '2', '0');
+INSERT INTO MATCH (MATCH_ID, HOME_TEAM_ID, AWAY_TEAM_ID) VALUES (11, '3', '1');
+
+INSERT INTO GAME_WEEK (GAME_WEEK_ID) VALUES (0);
+INSERT INTO GAME_WEEK (GAME_WEEK_ID) VALUES (1);
+INSERT INTO GAME_WEEK (GAME_WEEK_ID) VALUES (2);
+INSERT INTO GAME_WEEK (GAME_WEEK_ID) VALUES (3);
+INSERT INTO GAME_WEEK (GAME_WEEK_ID) VALUES (4);
+INSERT INTO GAME_WEEK (GAME_WEEK_ID) VALUES (5);
+INSERT INTO GAME_WEEK (GAME_WEEK_ID) VALUES (6);
+
+INSERT INTO GAME_WEEK_MATCHES (game_week_game_week_id, matches_match_id) VALUES (0,0);
+INSERT INTO GAME_WEEK_MATCHES (game_week_game_week_id, matches_match_id) VALUES (0,1);
+INSERT INTO GAME_WEEK_MATCHES (game_week_game_week_id, matches_match_id) VALUES (1,2);
+INSERT INTO GAME_WEEK_MATCHES (game_week_game_week_id, matches_match_id) VALUES (1,3);
+INSERT INTO GAME_WEEK_MATCHES (game_week_game_week_id, matches_match_id) VALUES (2,4);
+INSERT INTO GAME_WEEK_MATCHES (game_week_game_week_id, matches_match_id) VALUES (2,5);
+INSERT INTO GAME_WEEK_MATCHES (game_week_game_week_id, matches_match_id) VALUES (3,6);
+INSERT INTO GAME_WEEK_MATCHES (game_week_game_week_id, matches_match_id) VALUES (3,7);
+INSERT INTO GAME_WEEK_MATCHES (game_week_game_week_id, matches_match_id) VALUES (4,8);
+INSERT INTO GAME_WEEK_MATCHES (game_week_game_week_id, matches_match_id) VALUES (4,9);
+INSERT INTO GAME_WEEK_MATCHES (game_week_game_week_id, matches_match_id) VALUES (5,10);
+INSERT INTO GAME_WEEK_MATCHES (game_week_game_week_id, matches_match_id) VALUES (5,11);
+
+INSERT INTO SEASON (SEASON_ID, CURRENT_WEEK) VALUES (0, 0);
+
+INSERT INTO SEASON_GAME_WEEKS (season_season_id, game_weeks_game_week_id) VALUES (0,0);
+INSERT INTO SEASON_GAME_WEEKS (season_season_id, game_weeks_game_week_id) VALUES (0,1);
+INSERT INTO SEASON_GAME_WEEKS (season_season_id, game_weeks_game_week_id) VALUES (0,2);
+INSERT INTO SEASON_GAME_WEEKS (season_season_id, game_weeks_game_week_id) VALUES (0,3);
+INSERT INTO SEASON_GAME_WEEKS (season_season_id, game_weeks_game_week_id) VALUES (0,4);
+INSERT INTO SEASON_GAME_WEEKS (season_season_id, game_weeks_game_week_id) VALUES (0,5);
