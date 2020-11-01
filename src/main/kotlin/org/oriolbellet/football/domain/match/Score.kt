@@ -12,7 +12,7 @@ class Score() {
     @Column
     var awayTeamGoals: Int = 0
 
-    constructor(homeTeamGoals: Int,  awayTeamGoals: Int): this() {
+    constructor(homeTeamGoals: Int, awayTeamGoals: Int) : this() {
         this.homeTeamGoals = homeTeamGoals
         this.awayTeamGoals = awayTeamGoals
     }
