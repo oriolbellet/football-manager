@@ -7,6 +7,7 @@ import org.oriolbellet.football.error.MatchException
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import javax.persistence.*
+import javax.persistence.GenerationType.IDENTITY
 
 @Entity
 @Table(name = "MATCH")
@@ -17,8 +18,8 @@ class Match() {
 
     @Id
     @Column(name = "MATCH_ID")
-    @GeneratedValue
-    var matchId: Long = 0
+    @GeneratedValue(strategy = IDENTITY)
+    val matchId: Long? = null
 
     @ManyToOne
     @JoinColumn(name = "HOME_TEAM_ID", nullable = false)
@@ -107,6 +108,16 @@ class Match() {
         }
 
         return this.score?.homeTeamGoals ?: 0
+
+    }
+
+    fun played(score: Score) {
+
+        if (this.isPlayed()) {
+            throw MatchException(MATCH_ALREADY_PLAYED, "match with id $matchId already played")
+        }
+
+        this.score = score
 
     }
 

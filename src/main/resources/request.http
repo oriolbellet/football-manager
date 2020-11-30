@@ -1,4 +1,5 @@
-POST localhost:8080/football/api/v1/matches/2
+### Play match
+POST localhost:8080/football/api/v1/matches/0
 Content-Type: application/json
 
 ###
@@ -14,7 +15,7 @@ Content-Type: application/json
 GET localhost:8080/football/api/v1/teams
 Accept: application/json
 
-###
+### Get match
 GET localhost:8080/football/api/v1/matches/0
 Accept: application/json
 

@@ -36,7 +36,7 @@ internal class TeamAdapterTest {
         `when`(this.teamDao.findById(any(String::class.java))).thenReturn(Optional.of(teamJpaEntity))
 
         //When
-        val team = this.teamAdapter.findTeamById(teamId)
+        this.teamAdapter.findTeamById(teamId)
 
         //Then
         //assertEquals(name, team.name)

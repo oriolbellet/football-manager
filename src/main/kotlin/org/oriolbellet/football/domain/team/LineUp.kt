@@ -15,7 +15,7 @@ class LineUp {
     @Id
     @Column(name = "LINEUP_ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    lateinit var lineUpId: String
+    var lineUpId: String? = null
 
     @OneToMany
     lateinit var lineUp: List<Player>

@@ -18,7 +18,7 @@ class GetMatchController(private val getMatchUseCase: GetMatchUseCase,
 
         val match = this.getMatchUseCase(matchId)
 
-        return this.matchDtoMapper(match)
+        return matchDtoMapper(match)
 
     }
 
