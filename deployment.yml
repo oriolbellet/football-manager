@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: football
-          image: oriolbellet/football
+          image: oriolbellet/football:latest
           ports:
             - containerPort: 8080
           env:
