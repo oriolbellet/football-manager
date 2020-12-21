@@ -1,7 +1,7 @@
 version: '3'
 services:
  match-player:
-  build: ../match-player/.
+  image: oriolbellet/match-player:latest
   environment:
     SPRING_RABBITMQ_HOST: rabbitmq
   depends_on:
