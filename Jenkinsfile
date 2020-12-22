@@ -8,6 +8,7 @@ pipeline {
         CLUSTER_NAME = 'multi-cluster'
         LOCATION = 'us-central1-c'
         CREDENTIALS_ID = 'football'
+        GIT_SHA = sh(returnStdout: true, script: 'git rev-parse HEAD').trim().take(6)
     }
 
     agent any
@@ -29,16 +30,16 @@ pipeline {
             }
         }
 
-        stage('Building docker') {
+        stage('Build Docker') {
             when { branch 'master' }
             steps{
                 script {
-                    DOCKER_IMAGE = docker.build REGISTRY + ":$BUILD_NUMBER"
+                    DOCKER_IMAGE = docker.build REGISTRY + ":$GIT_SHA"
                 }
             }
         }
 
-        stage('Deploying docker') {
+        stage('Release to Docker Hub') {
             when { branch 'master' }
             steps {
                 script {
@@ -47,23 +48,23 @@ pipeline {
                         DOCKER_IMAGE.push('latest')
                     }
                 }
+                sh "docker rmi $REGISTRY:$GIT_SHA"
             }
         }
         
         stage('Deploy to GKE') {
             when { branch 'master' }
             steps{
-                sh "sed -i 's/football:latest/football:${env.BUILD_ID}/g' deployment.yml"
+                sh "sed -i 's/football:latest/football:$GIT_SHA/g' deployment.yml"
                 step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'deployment.yml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
-            }
-        }
-
-        stage('Cleaning up docker') {
-            when { branch 'master' }
-            steps{
-                sh "docker rmi $REGISTRY:$BUILD_NUMBER"
             }
         }
        
     }
+    post {
+        always {
+           cleanWs()
+        }
+    }
+    
 }
