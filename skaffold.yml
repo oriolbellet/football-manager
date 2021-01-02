@@ -1,0 +1,15 @@
+apiVersion: skaffold/v2beta7
+kind: Config
+build:
+  local:
+    push: false
+#Build app with 'mvn clean compile -Duser.name=oriolbellet'
+  artifacts:
+    - image: oriolbellet/football
+      jib: {}
+  tagPolicy:
+    gitCommit: {}
+deploy:
+  kubectl:
+    manifests:
+      - target/classes/META-INF/dekorate/kubernetes.json
