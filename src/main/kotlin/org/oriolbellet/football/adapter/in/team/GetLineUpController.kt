@@ -16,7 +16,7 @@ class GetLineUpController(private val getLineUpUseCase: GetLineUpUseCase,
                           private val playerDtoMapper: PlayerDtoMapper) {
 
     @GetMapping("/{teamId}/lineup")
-    fun getLineUp(@PathVariable("teamId") teamId: String): Map<String, List<PlayerDto>> {
+    fun getLineUp(@PathVariable("teamId") teamId: UUID): Map<String, List<PlayerDto>> {
 
         val lineUp = this.getLineUpUseCase(teamId)
 

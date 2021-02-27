@@ -8,7 +8,7 @@ import javax.inject.Named
 class TeamDtoMapperImpl : TeamDtoMapper {
 
     override fun invoke(input: Team): TeamDto {
-        return TeamDto(input.teamId, input.name)
+        return TeamDto(input.teamId!!, input.name)
     }
 
 }

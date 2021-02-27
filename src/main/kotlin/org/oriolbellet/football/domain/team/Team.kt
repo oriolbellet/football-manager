@@ -1,47 +1,54 @@
 package org.oriolbellet.football.domain.team
 
 import org.oriolbellet.football.domain.player.Player
+import org.oriolbellet.football.error.ErrorCode
+import org.oriolbellet.football.error.TeamException
+import java.util.*
 import javax.persistence.*
-import kotlin.collections.ArrayList
 
 @Entity
 @Table(name = "TEAM")
-class Team {
+class Team() {
 
     @Id
     @Column(name = "TEAM_ID")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    lateinit var teamId: String
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    var teamId: UUID? = null
 
     @Column
-    lateinit var name: String
+    var name: String = ""
 
-    @OneToMany(mappedBy = "team")
+    @OneToMany(mappedBy = "team", cascade = [CascadeType.ALL])
     lateinit var squad: MutableList<Player>
 
-    @OneToOne
+    @OneToOne(cascade = [CascadeType.ALL])
     lateinit var lineUp: LineUp
 
-    fun addPlayer(player: Player) {
-        if (!this.squad.contains(player)) {
-            this.squad.add(player)
+    @Column
+    var default = false
+
+    constructor(team: Team) : this() {
+        this.name = team.name
+        this.squad = team.squad.map { Player(it, this) }.toMutableList()
+        this.lineUp = LineUp(team.lineUp, this.squad)
+        this.default = false
+    }
+
+    fun changeTactic(tactic: BasicTactics) {
+        lineUp.tactic = tactic
+    }
+
+    fun substitution(player1: Player, player2: Player) {
+
+        if (!squad.contains(player1)) {
+            throw TeamException(ErrorCode.PLAYER_NOT_BELONGING, "Player ${player1.playerId} doesn't belong to team $teamId")
         }
+
+        if(!squad.contains(player2)) {
+            throw TeamException(ErrorCode.PLAYER_NOT_BELONGING, "Player ${player2.playerId} doesn't belong to team $teamId")
+        }
+
+        lineUp.substitution(player1, player2)
     }
-
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (javaClass != other?.javaClass) return false
-
-        other as Team
-
-        if (teamId != other.teamId) return false
-
-        return true
-    }
-
-    override fun hashCode(): Int {
-        return teamId.hashCode()
-    }
-
 
 }

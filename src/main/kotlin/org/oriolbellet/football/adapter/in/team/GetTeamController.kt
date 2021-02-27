@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import java.util.*
 
 @RestController
 @RequestMapping("/football/api/v1/teams")
@@ -14,7 +15,7 @@ class GetTeamController(private val getTeamUseCase: GetTeamUseCase,
                         private val teamDtoMapper: TeamDtoMapper) {
 
     @GetMapping("/{teamId}")
-    fun findById(@PathVariable("teamId") teamId: String): TeamDto {
+    fun findById(@PathVariable("teamId") teamId: UUID): TeamDto {
 
         val team = this.getTeamUseCase(teamId)
 

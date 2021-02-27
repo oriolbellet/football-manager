@@ -11,7 +11,7 @@ Content-Type: application/json
   "awayTeamId":"3"
 }
 
-###
+### Get teams
 GET localhost:8080/football/api/v1/teams
 Accept: application/json
 
@@ -24,9 +24,44 @@ GET localhost:8080/football/api/v1/season
 Accept: application/json
 
 ###
-POST localhost:8080/football/api/v1/season
-Accept: application/json
-
-###
 GET localhost:8080/football/api/v1/season/standings
 Accept: application/json
+
+### Create game
+POST localhost:8080/football/api/v1/games
+Accept: application/json
+Content-Type: application/json
+
+{
+  "userTeamId":"01fdbce4-7d10-4916-b71f-13cf61bbffe8"
+}
+
+### Get game teams
+GET localhost:8080/football/api/v1/games/1/teams
+Accept: application/json
+
+### Get standings
+GET localhost:8080/football/api/v1/games/1/standings
+Accept: application/json
+
+### Play game gameweek
+POST localhost:8080/football/api/v1/games/1
+Accept: application/json
+
+### Get game lineUp
+GET localhost:8080/football/api/v1/games/ca49446b-4485-4fdb-ac61-d747b7b063e8/lineup
+Accept: application/json
+
+### Change tactic
+PUT localhost:8080/football/api/v1/games/ca49446b-4485-4fdb-ac61-d747b7b063e8/tactic/T343
+Accept: application/json
+
+### Substitution
+PUT localhost:8080/football/api/v1/games/ca49446b-4485-4fdb-ac61-d747b7b063e8/substitution
+Accept: application/json
+Content-Type: application/json
+
+{
+  "player1":"130",
+  "player2": "131"
+}

@@ -3,7 +3,7 @@ package org.oriolbellet.football.domain.match
 import org.oriolbellet.football.domain.team.LineUp
 import java.util.concurrent.ThreadLocalRandom
 
-class RandomMatchPlayer: MatchPlayer {
+class RandomMatchAlgorithm: MatchAlgorithm {
 
     override fun play(homeTeamLineUp: LineUp, awayTeamLineUp: LineUp): Score {
 

@@ -15,7 +15,7 @@ class GetTeamsController(private val getTeamsUseCase: GetTeamsUseCase,
     @GetMapping
     fun findAll(): List<TeamDto> {
 
-        val teams = this.getTeamsUseCase()
+        val teams = getTeamsUseCase()
 
         return teams.map { this.teamDtoMapper(it) }
 

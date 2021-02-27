@@ -5,6 +5,6 @@ import java.util.*
 
 interface FindPlayer {
 
-    fun findPlayerById(playerId: String): Optional<Player>
+    fun find(playerId: String): Optional<Player>
 
 }

@@ -1,9 +1,9 @@
 package org.oriolbellet.football.domain.team
 
-import org.oriolbellet.football.domain.team.Team
+import java.util.*
 
 interface FindTeamDomainService {
 
-    operator fun invoke(teamId: String): Team
+    operator fun invoke(teamId: UUID): Team
 
 }

@@ -10,8 +10,8 @@ class MatchPlayerConfig(@Inject private val possessionCalculator: PossessionCalc
                         @Inject private val attackSimulator: AttackSimulator) {
 
     @Bean
-    fun matchPlayer(): MatchPlayer {
-        return BasicMatchPlayer(this.possessionCalculator, this.attackSimulator)
+    fun matchPlayer(): MatchAlgorithm {
+        return BasicMatchAlgorithm(this.possessionCalculator, this.attackSimulator)
     }
 
 }

@@ -25,7 +25,7 @@ class Match() {
     @JoinColumn(name = "HOME_TEAM_ID", nullable = false)
     lateinit var homeTeam: Team
 
-    @ManyToOne
+    @ManyToOne(cascade = [CascadeType.ALL])
     @JoinColumn(name = "AWAY_TEAM_ID", nullable = false)
     lateinit var awayTeam: Team
 
@@ -41,7 +41,7 @@ class Match() {
         this.awayTeam = awayTeam
     }
 
-    fun play(matchPlayer: MatchPlayer) {
+    fun play(matchAlgorithm: MatchAlgorithm) {
 
         if (this.isPlayed()) {
             throw MatchException(MATCH_ALREADY_PLAYED, "match with id $matchId already played")
@@ -49,7 +49,7 @@ class Match() {
 
         logger.info("Playing ${homeTeam.name} vs ${awayTeam.name} ...")
 
-        this.score = matchPlayer.play(this.homeTeam.lineUp, this.awayTeam.lineUp)
+        this.score = matchAlgorithm.play(this.homeTeam.lineUp, this.awayTeam.lineUp)
 
     }
 

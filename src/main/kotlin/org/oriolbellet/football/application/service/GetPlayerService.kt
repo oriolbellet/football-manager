@@ -11,7 +11,7 @@ import javax.inject.Named
 class GetPlayerService(private val findPlayer: FindPlayer): GetPlayerUseCase {
 
     override fun invoke(playerId: String): Player {
-        return this.findPlayer.findPlayerById(playerId).orElseThrow {
+        return this.findPlayer.find(playerId).orElseThrow {
             NotFoundException(PLAYER_NOT_FOUND, "Player with id $playerId not found")
         }
     }

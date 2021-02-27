@@ -5,6 +5,6 @@ import java.util.*
 
 interface FindTeam {
 
-    fun findTeamById(teamId: String): Optional<Team>
+    fun findTeamById(teamId: UUID): Optional<Team>
 
 }

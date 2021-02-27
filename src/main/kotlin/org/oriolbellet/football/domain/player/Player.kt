@@ -5,7 +5,7 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "PLAYER")
-class Player {
+class Player() {
 
     @Id
     @Column(name = "PLAYER_ID")
@@ -13,7 +13,7 @@ class Player {
     lateinit var playerId: String
 
     @Column
-    lateinit var name: String
+    var name: String = ""
 
     @Column
     lateinit var alias: String
@@ -24,5 +24,14 @@ class Player {
     @ManyToOne
     @JoinColumn(name = "TEAM_ID")
     lateinit var team: Team
+
+    constructor(player: Player, team: Team): this() {
+
+        this.name = player.name
+        this.alias = player.alias
+        this.average = player.average
+        this.team = team
+
+    }
 
 }
