@@ -53,7 +53,7 @@ GET localhost:8080/football/api/v1/games/ca49446b-4485-4fdb-ac61-d747b7b063e8/li
 Accept: application/json
 
 ### Change tactic
-PUT localhost:8080/football/api/v1/games/ca49446b-4485-4fdb-ac61-d747b7b063e8/tactic/T343
+PUT localhost:8080/football/api/v1/games/b9a00e17-5db7-4823-b60d-7862db841fe4/tactic/T343
 Accept: application/json
 
 ### Substitution
