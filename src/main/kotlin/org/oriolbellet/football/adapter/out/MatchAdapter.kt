@@ -8,7 +8,7 @@ import javax.inject.Inject
 import javax.inject.Named
 
 @Named
-class MatchAdapter(@Inject private val matchDao: MatchDao): SaveMatch, FindMatch {
+class MatchAdapter(private val matchDao: MatchDao) : SaveMatch, FindMatch {
 
     override fun save(match: Match): Match {
         return this.matchDao.save(match)

@@ -8,6 +8,5 @@ data class MatchDto(val matchId: Long, val homeTeam: String, val awayTeam: Strin
 data class ScoreDto(val homeTeamGoals: Int, val awayTeamGoals: Int)
 data class TeamDto(val teamId: UUID, val name: String)
 data class PlayerDto(val playerId: String, val name: String, val average: Int)
-data class SeasonDto(val seasonId: Long, val currentWeek: Int)
 data class StandingRowDto(val team: String, val points: Int, val gf: Int, val ga: Int)
 data class GameDto(val gameId: UUID, val teams: List<TeamDto>)
