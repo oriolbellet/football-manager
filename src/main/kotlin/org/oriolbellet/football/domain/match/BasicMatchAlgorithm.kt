@@ -1,17 +1,16 @@
 package org.oriolbellet.football.domain.match
 
-import org.oriolbellet.football.domain.match.BasicMatchPlayer.PlayResult.*
+import org.oriolbellet.football.domain.match.BasicMatchAlgorithm.PlayResult.*
 import org.oriolbellet.football.domain.match.MatchTeams.HOME_TEAM
 import org.oriolbellet.football.domain.team.LineUp
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import javax.inject.Inject
 
 
-class BasicMatchPlayer(val possessionCalculator: PossessionCalculator,
-                       val attackSimulator: AttackSimulator): MatchPlayer {
+class BasicMatchAlgorithm(val possessionCalculator: PossessionCalculator,
+                          val attackSimulator: AttackSimulator): MatchAlgorithm {
 
-    private val logger: Logger = LoggerFactory.getLogger(BasicMatchPlayer::class.java.simpleName)
+    private val logger: Logger = LoggerFactory.getLogger(BasicMatchAlgorithm::class.java.simpleName)
 
     private val numberOfAttacks = 10
 

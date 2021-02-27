@@ -5,7 +5,7 @@ import org.oriolbellet.football.application.port.out.FindMatch
 import org.oriolbellet.football.application.port.out.PlayMatch
 import org.oriolbellet.football.application.port.out.SaveMatch
 import org.oriolbellet.football.domain.match.Match
-import org.oriolbellet.football.domain.match.MatchPlayer
+import org.oriolbellet.football.domain.match.MatchAlgorithm
 import org.oriolbellet.football.error.ErrorCode.MATCH_NOT_FOUND
 import org.oriolbellet.football.error.NotFoundException
 import javax.inject.Named
@@ -13,7 +13,7 @@ import javax.inject.Named
 @Named("playMatchService")
 class PlayMatchService(private val findMatch: FindMatch,
                        private val saveMatch: SaveMatch,
-                       private val matchPlayer: MatchPlayer,
+                       private val matchAlgorithm: MatchAlgorithm,
                        private val playMatch: PlayMatch): PlayMatchUseCase {
 
     override fun invoke(matchId: Long): Match {
@@ -24,7 +24,7 @@ class PlayMatchService(private val findMatch: FindMatch,
 
         playMatch(match)
 
-        match.play(this.matchPlayer)
+        match.play(this.matchAlgorithm)
 
         return this.saveMatch.save(match)
 

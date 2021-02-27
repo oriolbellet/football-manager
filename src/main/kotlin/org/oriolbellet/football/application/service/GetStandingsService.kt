@@ -1,32 +1,27 @@
 package org.oriolbellet.football.application.service
 
-import org.oriolbellet.football.application.port.`in`.GetSeasonUseCase
 import org.oriolbellet.football.application.port.`in`.GetStandingsUseCase
-import org.oriolbellet.football.application.port.out.FindSeason
-import org.oriolbellet.football.application.port.out.FindTeams
+import org.oriolbellet.football.application.port.out.FindGame
 import org.oriolbellet.football.domain.season.StandingRow
 import org.oriolbellet.football.domain.season.StandingsCalculator
-import org.oriolbellet.football.error.ErrorCode.SEASON_NOT_FOUND
+import org.oriolbellet.football.error.ErrorCode
 import org.oriolbellet.football.error.NotFoundException
-import javax.inject.Inject
+import java.util.*
 import javax.inject.Named
 
 @Named
-class GetStandingsService(@Inject private val findSeason: FindSeason,
-                          @Inject private val findTeams: FindTeams,
-                          @Inject private val standingsCalculator: StandingsCalculator) : GetStandingsUseCase {
+class GetStandingsService(
+    private val findGame: FindGame,
+    private val standingsCalculator: StandingsCalculator
+) : GetStandingsUseCase {
 
-    override fun invoke(): List<StandingRow> {
+    override fun invoke(gameId: UUID): List<StandingRow> {
 
-        val seasonId = 0L
-
-        val season = findSeason.findSeasonById(seasonId).orElseThrow {
-            NotFoundException(SEASON_NOT_FOUND, "Season with id $seasonId not found")
+        val game = findGame.find(gameId).orElseThrow {
+            NotFoundException(ErrorCode.GAME_NOT_FOUND, "Game with id $gameId not found")
         }
 
-        val teams = findTeams.findAll()
-
-        return this.standingsCalculator(teams, season.gameWeeks.subList(0,season.currentWeek))
+        return this.standingsCalculator(game.teams, game.getGameWeeksFromFirstToLastPlayed())
 
     }
 }

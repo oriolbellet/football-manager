@@ -2,23 +2,23 @@ package org.oriolbellet.football.adapter.out
 
 import org.oriolbellet.football.application.port.out.FindTeam
 import org.oriolbellet.football.application.port.out.FindTeams
+import org.oriolbellet.football.application.port.out.SaveTeam
 import org.oriolbellet.football.domain.team.Team
 import java.util.*
-import javax.inject.Inject
 import javax.inject.Named
 
 @Named
-class TeamAdapter(@Inject private val teamDao: TeamDao): FindTeam, FindTeams {
+class TeamAdapter(private val teamDao: TeamDao) : FindTeam, FindTeams, SaveTeam {
 
-    override fun findTeamById(teamId: String): Optional<Team> {
-
-        return this.teamDao.findById(teamId)
-
+    override fun findTeamById(teamId: UUID): Optional<Team> {
+        return teamDao.findById(teamId)
     }
 
-    override fun findAll(): List<Team> {
+    override fun findAllDefaultTeams(): List<Team> {
+        return teamDao.findByDefaultTrue()
+    }
 
-        return this.teamDao.findAll()
-
+    override fun save(team: Team): Team {
+        return teamDao.save(team)
     }
 }

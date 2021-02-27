@@ -4,13 +4,14 @@ import org.oriolbellet.football.application.port.`in`.CreateMatchUseCase
 import org.oriolbellet.football.application.port.out.SaveMatch
 import org.oriolbellet.football.domain.match.Match
 import org.oriolbellet.football.domain.team.FindTeamDomainService
+import java.util.*
 import javax.inject.Named
 
 @Named
 class CreateMatchService(private val findTeamDomainService: FindTeamDomainService,
                          private val saveMatch: SaveMatch): CreateMatchUseCase {
 
-    override fun invoke(homeTeamId: String, awayTeamId: String): Match {
+    override fun invoke(homeTeamId: UUID, awayTeamId: UUID): Match {
 
         val homeTeam = this.findTeamDomainService(homeTeamId)
 

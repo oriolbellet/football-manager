@@ -26,19 +26,7 @@ internal class TeamAdapterTest {
     @Test
     fun `when findByTeamId should return Team`() {
 
-        //Given
-        val teamId = UUID.randomUUID().toString()
-        val name = UUID.randomUUID().toString()
-        var teamJpaEntity = Team()
-        teamJpaEntity.name = name
-        teamJpaEntity.teamId = teamId
 
-        `when`(this.teamDao.findById(any(String::class.java))).thenReturn(Optional.of(teamJpaEntity))
-
-        //When
-        this.teamAdapter.findTeamById(teamId)
-
-        //Then
         //assertEquals(name, team.name)
 
     }

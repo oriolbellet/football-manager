@@ -9,7 +9,7 @@ import javax.inject.Named
 class GetTeamsService(private val findTeams: FindTeams): GetTeamsUseCase {
 
     override fun invoke(): List<Team> {
-        return this.findTeams.findAll()
+        return this.findTeams.findAllDefaultTeams()
     }
 
 }
