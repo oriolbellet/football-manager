@@ -17,7 +17,7 @@ class GetGameTeamsService(private val findGame: FindGame): GetGameTeamsUseCase {
             NotFoundException(ErrorCode.GAME_NOT_FOUND, "Game with id $gameId not found")
         }
 
-        return game.teams
+        return game.gameTeams
 
     }
 }

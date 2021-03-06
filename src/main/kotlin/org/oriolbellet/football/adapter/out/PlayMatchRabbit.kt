@@ -21,11 +21,11 @@ class PlayMatchRabbit(private val rabbitTemplate: RabbitTemplate): PlayMatch {
 
     private fun parse(match: Match): String {
 
-        val homeTeamPlayers = match.homeTeam.lineUp.lineUp.map { x -> PlayerDto(x.playerId, x.alias, x.average) }.toList()
+        val homeTeamPlayers = match.homeTeam.lineUp.lineUp.map { x -> PlayerDto(x.playerId!!.toString(), x.alias, x.average) }.toList()
         val homeTeamLineUp = LineUpDto(homeTeamPlayers, match.homeTeam.lineUp.tactic.name)
         val homeTeam = TeamDto(match.homeTeam.name, homeTeamLineUp)
 
-        val awayTeamPlayers = match.awayTeam.lineUp.lineUp.map { x -> PlayerDto(x.playerId, x.alias, x.average) }.toList()
+        val awayTeamPlayers = match.awayTeam.lineUp.lineUp.map { x -> PlayerDto(x.playerId!!.toString(), x.alias, x.average) }.toList()
         val awayTeamLineUp = LineUpDto(awayTeamPlayers, match.awayTeam.lineUp.tactic.name)
         val awayTeam = TeamDto(match.awayTeam.name, awayTeamLineUp)
 

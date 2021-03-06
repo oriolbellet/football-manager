@@ -1,23 +1,17 @@
 package org.oriolbellet.football.domain.season
 
+import org.oriolbellet.football.adapter.out.model.Default
 import org.oriolbellet.football.domain.match.Match
 import org.oriolbellet.football.domain.match.MatchAlgorithm
-import javax.persistence.*
 
-@Entity
-@Table(name = "GAME_WEEK")
-class GameWeek() {
+class GameWeek(matches: List<Match>) {
 
-    @Id
-    @Column(name = "GAME_WEEK_ID")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     var gameWeekId: Long? = null
+    val matches = matches.toMutableList()
 
-    @OneToMany(cascade = [CascadeType.ALL])
-    var matches: MutableList<Match> = mutableListOf()
-
-    constructor(matches: List<Match>): this() {
-        this.matches = matches.toMutableList()
+    @Default
+    constructor(gameWeekId: Long, matches: List<Match>) : this(matches) {
+        this.gameWeekId = gameWeekId
     }
 
     fun play(matchAlgorithm: MatchAlgorithm) {

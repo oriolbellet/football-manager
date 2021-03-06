@@ -1,37 +1,24 @@
 package org.oriolbellet.football.domain.team
 
+import org.oriolbellet.football.adapter.out.model.Default
 import org.oriolbellet.football.domain.player.Player
 import org.oriolbellet.football.error.ErrorCode
 import org.oriolbellet.football.error.TeamException
 import java.util.*
-import javax.persistence.*
 
-@Entity
-@Table(name = "TEAM")
-class Team() {
+class Team(val name: String, squad: List<Player> = emptyList(), val lineUp: LineUp, val def: Boolean = false) {
 
-    @Id
-    @Column(name = "TEAM_ID")
-    @GeneratedValue(strategy = GenerationType.AUTO)
     var teamId: UUID? = null
+    val squad: MutableList<Player> = squad.toMutableList()
 
-    @Column
-    var name: String = ""
+    @Default
+    constructor(teamId: UUID?, name: String, squad: List<Player>, lineUp: LineUp, def: Boolean) : this(name, squad.toMutableList(), lineUp, def) {
+        this.teamId = teamId
+    }
 
-    @OneToMany(mappedBy = "team", cascade = [CascadeType.ALL])
-    lateinit var squad: MutableList<Player>
-
-    @OneToOne(cascade = [CascadeType.ALL])
-    lateinit var lineUp: LineUp
-
-    @Column
-    var default = false
-
-    constructor(team: Team) : this() {
-        this.name = team.name
-        this.squad = team.squad.map { Player(it, this) }.toMutableList()
-        this.lineUp = LineUp(team.lineUp, this.squad)
-        this.default = false
+    fun contractPlayer(player: Player) {
+        squad.add(player)
+        lineUp.addPlayer(player)
     }
 
     fun changeTactic(tactic: BasicTactics) {
@@ -50,5 +37,4 @@ class Team() {
 
         lineUp.substitution(player1, player2)
     }
-
 }

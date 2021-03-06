@@ -23,6 +23,6 @@ class TeamSubstitutionController(
         return lineUpDtoMapper(lineUp)
     }
 
-    data class SubstitutionRequestDto(val player1: String, val player2: String)
+    data class SubstitutionRequestDto(val player1: UUID, val player2: UUID)
 
 }

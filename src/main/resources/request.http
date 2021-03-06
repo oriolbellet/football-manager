@@ -2,25 +2,25 @@
 POST localhost:8080/football/api/v1/matches/0
 Content-Type: application/json
 
-###
+### Create match
 POST localhost:8080/football/api/v1/matches/
 Content-Type: application/json
 
 {
-  "homeTeamId":"2",
-  "awayTeamId":"3"
+  "homeTeamId":"01fdbce4-7d10-4916-b71f-13cf61bbffe8",
+  "awayTeamId":"1eb88008-6666-11eb-ae93-0242ac130002"
 }
 
 ### Get teams
 GET localhost:8080/football/api/v1/teams
 Accept: application/json
 
-### Get match
-GET localhost:8080/football/api/v1/matches/0
+### Get team
+GET localhost:8080/football/api/v1/teams/01fdbce4-7d10-4916-b71f-13cf61bbffe8
 Accept: application/json
 
-###
-GET localhost:8080/football/api/v1/season
+### Get match
+GET localhost:8080/football/api/v1/matches/0
 Accept: application/json
 
 ###
@@ -33,35 +33,36 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "userTeamId":"01fdbce4-7d10-4916-b71f-13cf61bbffe8"
+  "userTeamId":"1eb88008-6666-11eb-ae93-0242ac130002"
 }
 
 ### Get game teams
-GET localhost:8080/football/api/v1/games/1/teams
+GET localhost:8080/football/api/v1/games/e3a3e100-45ad-4c3b-848f-ab348670a80c/teams
 Accept: application/json
 
 ### Get standings
-GET localhost:8080/football/api/v1/games/1/standings
+GET localhost:8080/football/api/v1/games/6f5b0499-fc1e-496f-9881-453336088c72/standings
 Accept: application/json
 
 ### Play game gameweek
-POST localhost:8080/football/api/v1/games/1
+POST localhost:8080/football/api/v1/games/1b21b66c-ee75-4274-a003-89ab80bc6013
 Accept: application/json
 
 ### Get game lineUp
-GET localhost:8080/football/api/v1/games/ca49446b-4485-4fdb-ac61-d747b7b063e8/lineup
+GET localhost:8080/football/api/v1/games/1b21b66c-ee75-4274-a003-89ab80bc6013/lineup
 Accept: application/json
 
 ### Change tactic
-PUT localhost:8080/football/api/v1/games/b9a00e17-5db7-4823-b60d-7862db841fe4/tactic/T343
+PUT localhost:8080/football/api/v1/games/6f5b0499-fc1e-496f-9881-453336088c72/tactic/T343
+
 Accept: application/json
 
-### Substitution
-PUT localhost:8080/football/api/v1/games/ca49446b-4485-4fdb-ac61-d747b7b063e8/substitution
+### Substitution<
+PUT localhost:8080/football/api/v1/games/1b21b66c-ee75-4274-a003-89ab80bc6013/substitution
 Accept: application/json
 Content-Type: application/json
 
 {
-  "player1":"130",
-  "player2": "131"
+  "player1":"877f0912-82b3-4056-9e33-302b23473aca",
+  "player2":"ae1e8bda-bd9c-4623-82a4-dab84e7b4d28"
 }
