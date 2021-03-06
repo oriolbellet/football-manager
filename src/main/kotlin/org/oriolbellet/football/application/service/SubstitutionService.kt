@@ -17,12 +17,9 @@ class SubstitutionService(
     private val saveTeam: SaveTeam
 ) : SubstitutionUseCase {
 
-    override fun invoke(gameId: UUID, player1Id: String, player2Id: String): LineUp {
+    override fun invoke(gameId: UUID, player1Id: UUID, player2Id: UUID): LineUp {
 
-        val team = findGameDomainService(gameId).userTeam ?: throw NotFoundException(
-            PLAYER_NOT_FOUND,
-            "userTeam for gameid $gameId not found"
-        )
+        val team = findGameDomainService(gameId).userTeam
 
         team.substitution(findPlayerDomainService(player1Id), findPlayerDomainService(player2Id))
 

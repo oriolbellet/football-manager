@@ -12,10 +12,10 @@ class LineUpDtoMapperImpl(private val playerDtoMapper: PlayerDtoMapper) : LineUp
 
         val result = LinkedHashMap<String, List<PlayerDto>>()
 
-        result["goalkeeper"] = Collections.singletonList(this.playerDtoMapper(input.getGoalKeeper()))
-        result["defender"] = input.getDefenders().map { this.playerDtoMapper(it) }
-        result["midfielder"] = input.getMidfielders().map { this.playerDtoMapper(it) }
-        result["forward"] = input.getForwards().map { this.playerDtoMapper(it) }
+        result["goalkeeper"] = Collections.singletonList(this.playerDtoMapper(input.goalKeeper()))
+        result["defender"] = input.defenders().map { this.playerDtoMapper(it) }
+        result["midfielder"] = input.midfielders().map { this.playerDtoMapper(it) }
+        result["forward"] = input.forwards().map { this.playerDtoMapper(it) }
 
         return result
 

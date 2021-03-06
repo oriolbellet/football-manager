@@ -21,7 +21,7 @@ class GetStandingsService(
             NotFoundException(ErrorCode.GAME_NOT_FOUND, "Game with id $gameId not found")
         }
 
-        return this.standingsCalculator(game.teams, game.getGameWeeksFromFirstToLastPlayed())
+        return this.standingsCalculator(game.gameTeams, game.gameWeeksFromFirstToLastPlayed())
 
     }
 }

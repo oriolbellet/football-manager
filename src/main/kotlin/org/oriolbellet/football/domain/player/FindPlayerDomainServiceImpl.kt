@@ -10,7 +10,7 @@ import javax.inject.Named
 @Named
 class FindPlayerDomainServiceImpl(private val findPlayer: FindPlayer) : FindPlayerDomainService {
 
-    override fun invoke(playerId: String): Player {
+    override fun invoke(playerId: UUID): Player {
         return findPlayer.find(playerId).orElseThrow {
             NotFoundException(PLAYER_NOT_FOUND, "Player with id $playerId not found")
         }

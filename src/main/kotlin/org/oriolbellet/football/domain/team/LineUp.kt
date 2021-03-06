@@ -1,69 +1,58 @@
 package org.oriolbellet.football.domain.team
 
+import org.oriolbellet.football.adapter.out.model.Default
 import org.oriolbellet.football.domain.player.Player
-import org.oriolbellet.football.error.ErrorCode
 import org.oriolbellet.football.error.ErrorCode.PLAYER_NOT_BELONGING
-import org.oriolbellet.football.error.ErrorCode.PLAYER_NOT_FOUND
 import org.oriolbellet.football.error.LineUpException
 import java.util.*
-import javax.persistence.*
 
-@Entity
-@Table(name = "LINEUP")
-class LineUp() {
+class LineUp(lineUp: List<Player> = emptyList(), var tactic: BasicTactics) {
 
-    @Transient
     private val numGoalkeepers = 1
-    @Transient
     private val numPlayersLineUp = 11
 
-    @Id
-    @Column(name = "LINEUP_ID")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var lineUpId: String? = null
+    var lineUpId: UUID? = null
+    val lineUp: MutableList<Player> = lineUp.toMutableList()
 
-    @OneToMany
-    var lineUp: MutableList<Player> = mutableListOf()
-
-    @Column(name = "TACTIC")
-    @Enumerated(EnumType.STRING)
-    lateinit var tactic: BasicTactics
-
-    constructor(lineUp: LineUp, players: List<Player>):this() {
-        this.lineUp = players.toMutableList()
-        this.tactic = lineUp.tactic
+    @Default
+    constructor(lineUpId: UUID?, lineUp: List<Player>, tactic: BasicTactics) : this(lineUp, tactic) {
+        this.lineUpId = lineUpId
     }
 
-    fun getGoalKeeper(): Player {
-        return lineUp[0];
+    fun addPlayer(player: Player) {
+        lineUp.add(player)
     }
 
-    fun getDefenders(): List<Player> {
+    fun goalKeeper(): Player {
+        return lineUp[0]
+    }
+
+    fun defenders(): List<Player> {
         val fromIndex = numGoalkeepers
         return lineUp.subList(fromIndex, fromIndex + tactic.getNumDefenders())
     }
 
-    fun getMidfielders(): List<Player> {
+    fun midfielders(): List<Player> {
         val fromIndex = numGoalkeepers + tactic.getNumDefenders()
         return lineUp.subList(fromIndex, fromIndex + tactic.getNumMidfielders())
     }
 
-    fun getForwards(): List<Player> {
+    fun forwards(): List<Player> {
         val fromIndex = numGoalkeepers + tactic.getNumDefenders() + tactic.getNumMidfielders()
         return lineUp.subList(fromIndex, numPlayersLineUp)
     }
 
     fun getMidfieldPoints(): Int {
-        return this.getMidfielders().stream().mapToInt{ x -> x.average }.sum()
+        return this.midfielders().stream().mapToInt { x -> x.average }.sum()
     }
 
     fun getAttackPoints(): Int {
-        return this.getForwards().stream().mapToInt{ x -> x.average }.sum()
+        return this.forwards().stream().mapToInt { x -> x.average }.sum()
     }
 
     fun getDefensePoints(): Int {
-        return this.getDefenders().stream().mapToInt{ x -> x.average }.sum() +
-                this.getGoalKeeper().average
+        return this.defenders().stream().mapToInt { x -> x.average }.sum() +
+                this.goalKeeper().average
     }
 
     fun substitution(player1: Player, player2: Player) {
@@ -81,6 +70,4 @@ class LineUp() {
 
         Collections.swap(lineUp, player1pos, player2pos)
     }
-
-
 }

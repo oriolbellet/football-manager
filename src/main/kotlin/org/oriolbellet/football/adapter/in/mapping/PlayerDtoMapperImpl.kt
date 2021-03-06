@@ -9,7 +9,7 @@ import javax.inject.Named
 class PlayerDtoMapperImpl : PlayerDtoMapper {
 
     override fun invoke(input: Player): PlayerDto {
-        return PlayerDto(input.playerId, input.name, input.average)
+        return PlayerDto(input.playerId!!, input.name, input.average)
     }
 
 }

@@ -1,37 +1,44 @@
 package org.oriolbellet.football.domain.player
 
+import org.oriolbellet.football.adapter.out.model.Default
 import org.oriolbellet.football.domain.team.Team
-import javax.persistence.*
+import java.util.*
 
-@Entity
-@Table(name = "PLAYER")
-class Player() {
+class Player(val name: String, val alias: String, val average: Int, var team: Team) {
 
-    @Id
-    @Column(name = "PLAYER_ID")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    lateinit var playerId: String
+    var playerId: UUID? = null
 
-    @Column
-    var name: String = ""
-
-    @Column
-    lateinit var alias: String
-
-    @Column
-    var average: Int = 0
-
-    @ManyToOne
-    @JoinColumn(name = "TEAM_ID")
-    lateinit var team: Team
-
-    constructor(player: Player, team: Team): this() {
-
-        this.name = player.name
-        this.alias = player.alias
-        this.average = player.average
-        this.team = team
-
+    @Default
+    constructor(playerId: UUID, name: String, alias: String, average: Int, team: Team) : this(
+        name,
+        alias,
+        average,
+        team
+    ) {
+        this.playerId = playerId
     }
 
+    constructor(player: Player) : this(player.name, player.alias, player.average, player.team)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as Player
+
+        if (name != other.name) return false
+        if (alias != other.alias) return false
+        if (average != other.average) return false
+        if (playerId != other.playerId) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = name.hashCode()
+        result = 31 * result + alias.hashCode()
+        result = 31 * result + average
+        result = 31 * result + (playerId?.hashCode() ?: 0)
+        return result
+    }
 }

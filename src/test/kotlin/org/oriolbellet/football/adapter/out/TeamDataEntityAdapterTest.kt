@@ -13,7 +13,7 @@ import java.util.*
 
 @ExtendWith(SpringExtension::class)
 @ContextConfiguration(classes = [TeamAdapter::class])
-internal class TeamAdapterTest {
+internal class TeamDataEntityAdapterTest {
 
     @MockBean
     private lateinit var teamDao: TeamDao

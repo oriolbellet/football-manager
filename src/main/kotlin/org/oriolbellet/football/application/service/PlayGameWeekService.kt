@@ -27,7 +27,7 @@ class PlayGameWeekService(
 
         saveGame.save(game)
 
-        return game.getLastGameWeek()
+        return game.lastGameWeek()
 
     }
 }
