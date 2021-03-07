@@ -3,8 +3,6 @@ package org.oriolbellet.football.application.service
 import org.oriolbellet.football.application.port.`in`.CreateGameUseCase
 import org.oriolbellet.football.application.port.out.FindTeams
 import org.oriolbellet.football.application.port.out.SaveGame
-import org.oriolbellet.football.application.port.out.SavePlayer
-import org.oriolbellet.football.application.port.out.SaveTeam
 import org.oriolbellet.football.domain.game.Game
 import org.oriolbellet.football.domain.player.Player
 import org.oriolbellet.football.domain.season.GameWeeksGeneratorProvider
@@ -15,14 +13,16 @@ import org.oriolbellet.football.error.ErrorCode.TEAM_NOT_FOUND
 import org.oriolbellet.football.error.NotFoundException
 import java.util.*
 import javax.inject.Named
+import javax.transaction.Transactional
 
 @Named
-class CreateGameService(
+open class CreateGameService(
     private val findTeams: FindTeams,
     private val saveGame: SaveGame,
     private val gameWeeksGeneratorProvider: GameWeeksGeneratorProvider,
 ) : CreateGameUseCase {
 
+    @Transactional
     override fun invoke(userTeamId: UUID): Game {
 
         var userTeam: Team? = null
@@ -47,7 +47,7 @@ class CreateGameService(
     }
 
     private fun createTeam(team: Team): Team {
-        var newTeam = Team(name = team.name, lineUp = LineUp(tactic = team.lineUp.tactic))
+        val newTeam = Team(name = team.name, lineUp = LineUp(tactic = team.lineUp.tactic))
         team.squad.forEach {
             newTeam.contractPlayer(Player(it))
         }

@@ -8,6 +8,6 @@ import javax.inject.Named
 class GameDtoMapperImpl(private val teamDtoMapper: TeamDtoMapper) : GameDtoMapper {
 
     override fun invoke(input: Game): GameDto {
-        return GameDto(input.gameId!!, input.season!!.teams.map { teamDtoMapper(it) })
+        return GameDto(input.gameId!!, input.season.teams.map { teamDtoMapper(it) })
     }
 }

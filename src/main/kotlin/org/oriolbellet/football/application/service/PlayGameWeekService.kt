@@ -9,14 +9,16 @@ import org.oriolbellet.football.error.ErrorCode
 import org.oriolbellet.football.error.NotFoundException
 import java.util.*
 import javax.inject.Named
+import javax.transaction.Transactional
 
 @Named
-class PlayGameWeekService(
+open class PlayGameWeekService(
     private val findGame: FindGame,
     private val saveGame: SaveGame,
     private val matchAlgorithm: MatchAlgorithm
 ) : PlayGameWeekUseCase {
 
+    @Transactional
     override fun invoke(gameId: UUID): GameWeek {
 
         val game = findGame.find(gameId).orElseThrow {

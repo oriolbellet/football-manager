@@ -7,20 +7,20 @@ import org.oriolbellet.football.domain.team.BasicTactics
 import org.oriolbellet.football.domain.team.LineUp
 import java.util.*
 import javax.inject.Named
+import javax.transaction.Transactional
 
 @Named
-class ChangeTacticService(private val findGameDomainService: FindGameDomainService, private val saveTeam: SaveTeam) :
+open class ChangeTacticService(
+    private val findGameDomainService: FindGameDomainService,
+    private val saveTeam: SaveTeam
+) :
     ChangeTacticUseCase {
 
+    @Transactional
     override fun invoke(gameId: UUID, tactic: BasicTactics): LineUp {
-
         val game = findGameDomainService(gameId)
-
         val team = game.userTeam
-
         team.changeTactic(tactic)
-
         return saveTeam.save(team).lineUp
-
     }
 }

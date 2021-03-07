@@ -7,10 +7,12 @@ import org.oriolbellet.football.error.ErrorCode.PLAYER_NOT_FOUND
 import org.oriolbellet.football.error.NotFoundException
 import java.util.*
 import javax.inject.Named
+import javax.transaction.Transactional
 
 @Named
-class GetPlayerService(private val findPlayer: FindPlayer): GetPlayerUseCase {
+open class GetPlayerService(private val findPlayer: FindPlayer) : GetPlayerUseCase {
 
+    @Transactional
     override fun invoke(playerId: UUID): Player {
         return this.findPlayer.find(playerId).orElseThrow {
             NotFoundException(PLAYER_NOT_FOUND, "Player with id $playerId not found")
