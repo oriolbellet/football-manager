@@ -5,12 +5,13 @@ import org.oriolbellet.football.domain.team.FindTeamDomainService
 import org.oriolbellet.football.domain.team.Team
 import java.util.*
 import javax.inject.Named
+import javax.transaction.Transactional
 
 @Named
-class GetTeamService(private val findTeamDomainService: FindTeamDomainService): GetTeamUseCase {
+open class GetTeamService(private val findTeamDomainService: FindTeamDomainService) : GetTeamUseCase {
 
+    @Transactional
     override fun invoke(teamId: UUID): Team {
-       return this.findTeamDomainService(teamId)
+        return this.findTeamDomainService(teamId)
     }
-
 }

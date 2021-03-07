@@ -8,13 +8,15 @@ import org.oriolbellet.football.error.ErrorCode
 import org.oriolbellet.football.error.NotFoundException
 import java.util.*
 import javax.inject.Named
+import javax.transaction.Transactional
 
 @Named
-class GetStandingsService(
+open class GetStandingsService(
     private val findGame: FindGame,
     private val standingsCalculator: StandingsCalculator
 ) : GetStandingsUseCase {
 
+    @Transactional
     override fun invoke(gameId: UUID): List<StandingRow> {
 
         val game = findGame.find(gameId).orElseThrow {

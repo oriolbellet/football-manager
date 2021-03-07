@@ -9,16 +9,20 @@ import org.oriolbellet.football.domain.match.MatchAlgorithm
 import org.oriolbellet.football.error.ErrorCode.MATCH_NOT_FOUND
 import org.oriolbellet.football.error.NotFoundException
 import javax.inject.Named
+import javax.transaction.Transactional
 
 @Named("playMatchService")
-class PlayMatchService(private val findMatch: FindMatch,
-                       private val saveMatch: SaveMatch,
-                       private val matchAlgorithm: MatchAlgorithm,
-                       private val playMatch: PlayMatch): PlayMatchUseCase {
+open class PlayMatchService(
+    private val findMatch: FindMatch,
+    private val saveMatch: SaveMatch,
+    private val matchAlgorithm: MatchAlgorithm,
+    private val playMatch: PlayMatch
+) : PlayMatchUseCase {
 
+    @Transactional
     override fun invoke(matchId: Long): Match {
 
-        val match = this.findMatch.findMatchById(matchId).orElseThrow{
+        val match = this.findMatch.findMatchById(matchId).orElseThrow {
             NotFoundException(MATCH_NOT_FOUND, "Match with id $matchId not found")
         }
 
