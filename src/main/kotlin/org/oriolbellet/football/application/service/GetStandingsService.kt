@@ -2,8 +2,8 @@ package org.oriolbellet.football.application.service
 
 import org.oriolbellet.football.application.port.`in`.GetStandingsUseCase
 import org.oriolbellet.football.application.port.out.FindGame
-import org.oriolbellet.football.domain.season.StandingRow
-import org.oriolbellet.football.domain.season.StandingsCalculator
+import org.oriolbellet.football.domain.season.standings.StandingRow
+import org.oriolbellet.football.domain.season.standings.StandingsCalculator
 import org.oriolbellet.football.error.ErrorCode
 import org.oriolbellet.football.error.NotFoundException
 import java.util.*

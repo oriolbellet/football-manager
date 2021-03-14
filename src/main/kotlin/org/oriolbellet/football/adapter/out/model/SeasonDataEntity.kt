@@ -1,7 +1,5 @@
 package org.oriolbellet.football.adapter.out.model
 
-import org.oriolbellet.football.domain.season.GameWeek
-import org.oriolbellet.football.domain.team.Team
 import java.util.*
 import javax.persistence.*
 

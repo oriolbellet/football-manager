@@ -1,4 +1,4 @@
-package org.oriolbellet.football.domain.season
+package org.oriolbellet.football.domain.season.gameweek
 
 import org.oriolbellet.football.adapter.out.model.Default
 import org.oriolbellet.football.domain.match.Match

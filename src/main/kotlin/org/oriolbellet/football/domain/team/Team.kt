@@ -16,9 +16,12 @@ class Team(val name: String, squad: List<Player> = emptyList(), val lineUp: Line
         this.teamId = teamId
     }
 
-    fun contractPlayer(player: Player) {
-        squad.add(player)
-        lineUp.addPlayer(player)
+    constructor(team: Team): this(name = team.name, lineUp = LineUp(tactic = team.lineUp.tactic)) {
+        team.squad.forEach {
+            val player = Player(it)
+            squad.add(player)
+            lineUp.addPlayer(player)
+        }
     }
 
     fun changeTactic(tactic: BasicTactics) {
@@ -36,5 +39,29 @@ class Team(val name: String, squad: List<Player> = emptyList(), val lineUp: Line
         }
 
         lineUp.substitution(player1, player2)
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as Team
+
+        if (name != other.name) return false
+        if (lineUp != other.lineUp) return false
+        if (def != other.def) return false
+        if (teamId != other.teamId) return false
+        if (squad != other.squad) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = name.hashCode()
+        result = 31 * result + lineUp.hashCode()
+        result = 31 * result + def.hashCode()
+        result = 31 * result + (teamId?.hashCode() ?: 0)
+        result = 31 * result + squad.hashCode()
+        return result
     }
 }

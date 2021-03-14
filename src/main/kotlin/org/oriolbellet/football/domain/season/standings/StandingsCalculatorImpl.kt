@@ -1,9 +1,10 @@
-package org.oriolbellet.football.domain.season
+package org.oriolbellet.football.domain.season.standings
 
 import org.oriolbellet.football.domain.match.Match
 import org.oriolbellet.football.domain.match.MatchResult
 import org.oriolbellet.football.domain.match.MatchResult.TIE
 import org.oriolbellet.football.domain.match.MatchResult.WIN
+import org.oriolbellet.football.domain.season.gameweek.GameWeek
 import org.oriolbellet.football.domain.team.Team
 import javax.inject.Named
 

@@ -1,4 +1,4 @@
-package org.oriolbellet.football.domain.season
+package org.oriolbellet.football.domain.season.standings
 
 class StandingData(var points: Int, var goalsFor: Int, var goalsAgainst: Int): Comparable<StandingData> {
 

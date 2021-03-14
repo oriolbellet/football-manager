@@ -1,9 +1,10 @@
-package org.oriolbellet.football.domain.season
+package org.oriolbellet.football.domain.season.gameweek
 
+import org.oriolbellet.football.commons.NAMED_GAME_WEEK_4_TEAMS_GENERATOR
 import javax.inject.Named
 
 @Named
-class GameWeeksGeneratorProviderImpl(private val gameWeeks4TeamGenerator: GameWeeks4TeamGenerator) :
+class GameWeeksGeneratorProviderImpl(@Named(NAMED_GAME_WEEK_4_TEAMS_GENERATOR) private val gameWeeks4TeamGenerator: GameWeeksGenerator) :
     GameWeeksGeneratorProvider {
 
     override fun invoke(numTeams: Int): GameWeeksGenerator {
