@@ -1,6 +1,6 @@
 package org.oriolbellet.football.domain.game
 
-import org.oriolbellet.football.adapter.out.model.Default
+import org.oriolbellet.football.domain.Default
 import org.oriolbellet.football.domain.match.MatchAlgorithm
 import org.oriolbellet.football.domain.season.gameweek.GameWeek
 import org.oriolbellet.football.domain.season.Season

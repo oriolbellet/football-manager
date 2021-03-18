@@ -1,7 +1,6 @@
-package org.oriolbellet.football.application.service
+package org.oriolbellet.football
 
 import org.mockito.ArgumentCaptor
-import org.mockito.ArgumentMatchers
 import org.mockito.ArgumentMatchers.eq
 import org.mockito.Mockito
 

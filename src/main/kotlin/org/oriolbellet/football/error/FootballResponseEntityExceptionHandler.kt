@@ -19,20 +19,20 @@ class FootballResponseEntityExceptionHandler : ResponseEntityExceptionHandler() 
 
     @ExceptionHandler(NotFoundException::class)
     fun handleNotFound(ex: NotFoundException, request: WebRequest): ResponseEntity<Any> {
-
         val errorDto = ErrorDto(ex.errorCode, ex.message ?: "")
-
         return handleExceptionInternal(ex, errorDto, HttpHeaders(), NOT_FOUND, request)
+    }
 
+    @ExceptionHandler(BadRequestException::class)
+    fun handleNotFound(ex: BadRequestException, request: WebRequest): ResponseEntity<Any> {
+        val errorDto = ErrorDto(ex.errorCode, ex.message ?: "")
+        return handleExceptionInternal(ex, errorDto, HttpHeaders(), BAD_REQUEST, request)
     }
 
     @ExceptionHandler(MatchException::class)
     fun handleNotFound(ex: MatchException, request: WebRequest): ResponseEntity<Any> {
-
         val errorDto = ErrorDto(ex.errorCode, ex.message ?: "")
-
         return handleExceptionInternal(ex, errorDto, HttpHeaders(), CONFLICT, request)
-
     }
 
     @ExceptionHandler(Exception::class)

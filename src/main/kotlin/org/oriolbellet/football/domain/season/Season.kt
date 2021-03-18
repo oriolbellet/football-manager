@@ -1,6 +1,6 @@
 package org.oriolbellet.football.domain.season
 
-import org.oriolbellet.football.adapter.out.model.Default
+import org.oriolbellet.football.domain.Default
 import org.oriolbellet.football.domain.match.MatchAlgorithm
 import org.oriolbellet.football.domain.season.gameweek.GameWeek
 import org.oriolbellet.football.domain.season.gameweek.GameWeeksGeneratorProvider
@@ -32,4 +32,28 @@ class Season(val gameWeeks: List<GameWeek>, val teams: List<Team>, var currentWe
     fun getLastGameWeek(): GameWeek {
         return gameWeeks[currentWeek - 1]
     }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as Season
+
+        if (gameWeeks != other.gameWeeks) return false
+        if (teams != other.teams) return false
+        if (currentWeek != other.currentWeek) return false
+        if (seasonId != other.seasonId) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = gameWeeks.hashCode()
+        result = 31 * result + teams.hashCode()
+        result = 31 * result + currentWeek
+        result = 31 * result + (seasonId?.hashCode() ?: 0)
+        return result
+    }
+
+
 }

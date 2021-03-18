@@ -13,14 +13,17 @@ import org.mockito.Mockito.`when`
 import org.mockito.Mockito.verify
 
 import org.mockito.junit.jupiter.MockitoExtension
+import org.oriolbellet.football.any
 import org.oriolbellet.football.application.port.out.FindTeams
 import org.oriolbellet.football.application.port.out.SaveGame
+import org.oriolbellet.football.capture
 import org.oriolbellet.football.domain.game.CreateGameDomainService
 import org.oriolbellet.football.domain.game.Game
 import org.oriolbellet.football.domain.season.Season
 import org.oriolbellet.football.domain.team.BasicTactics
 import org.oriolbellet.football.domain.team.LineUp
 import org.oriolbellet.football.domain.team.Team
+import org.oriolbellet.football.eq
 import java.util.*
 
 @ExtendWith(MockitoExtension::class)
@@ -55,7 +58,7 @@ internal class CreateGameServiceTest {
     @Test
     fun `when invoke then must return same object as saveGame`() {
         //Given
-        `when`(findTeams.findAllDefaultTeams()).thenReturn(Collections.singletonList(team))
+        `when`(findTeams.findAllDefault()).thenReturn(Collections.singletonList(team))
         `when`(createGameDomainService(anyList(), any())).thenReturn(game)
         `when`(saveGame.save(any())).thenReturn(game)
 
@@ -69,7 +72,7 @@ internal class CreateGameServiceTest {
     @Test
     fun `when invoke then createGameDomainServer must be called`() {
         //Given
-        `when`(findTeams.findAllDefaultTeams()).thenReturn(Collections.singletonList(team))
+        `when`(findTeams.findAllDefault()).thenReturn(Collections.singletonList(team))
         `when`(saveGame.save(any())).thenReturn(game)
 
         //When
@@ -78,13 +81,13 @@ internal class CreateGameServiceTest {
         //Then
         verify(createGameDomainService)(capture(teamsArgumentCaptor), eq(uuid))
         assertTrue(teamsArgumentCaptor.value.contains(team))
-        assertEquals(1,teamsArgumentCaptor.value.size)
+        assertEquals(1, teamsArgumentCaptor.value.size)
     }
 
     @Test
     fun `when invoke then saveGame must be called`() {
         //Given
-        `when`(findTeams.findAllDefaultTeams()).thenReturn(Collections.singletonList(team))
+        `when`(findTeams.findAllDefault()).thenReturn(Collections.singletonList(team))
         `when`(createGameDomainService(anyList(), any())).thenReturn(game)
 
         //When
@@ -92,6 +95,6 @@ internal class CreateGameServiceTest {
 
         //Then
         verify(saveGame).save(capture(gameArgumentCaptor))
-        assertEquals(game,gameArgumentCaptor.value)
+        assertEquals(game, gameArgumentCaptor.value)
     }
 }

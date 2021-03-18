@@ -1,7 +1,9 @@
 package org.oriolbellet.football.domain.game
 
 import org.oriolbellet.football.domain.team.Team
+import org.oriolbellet.football.error.BadRequestException
 import org.oriolbellet.football.error.ErrorCode
+import org.oriolbellet.football.error.ErrorCode.INVALID_TEAM
 import org.oriolbellet.football.error.NotFoundException
 import java.util.*
 import javax.inject.Named
@@ -21,7 +23,7 @@ class CreateGameDomainServiceImpl(private val gameFactory: GameFactory) :
         }
         return gameFactory.create(
             teams,
-            userTeam ?: throw NotFoundException(ErrorCode.TEAM_NOT_FOUND, "team $defaultUserTeamId not found")
+            userTeam ?: throw BadRequestException(INVALID_TEAM, "team $defaultUserTeamId is not valid team")
         )
     }
 }

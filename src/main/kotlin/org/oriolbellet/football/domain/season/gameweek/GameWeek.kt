@@ -1,6 +1,6 @@
 package org.oriolbellet.football.domain.season.gameweek
 
-import org.oriolbellet.football.adapter.out.model.Default
+import org.oriolbellet.football.domain.Default
 import org.oriolbellet.football.domain.match.Match
 import org.oriolbellet.football.domain.match.MatchAlgorithm
 
@@ -19,5 +19,24 @@ class GameWeek(matches: List<Match>) {
             it.play(matchAlgorithm)
         }
     }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as GameWeek
+
+        if (gameWeekId != other.gameWeekId) return false
+        if (matches != other.matches) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = gameWeekId?.hashCode() ?: 0
+        result = 31 * result + matches.hashCode()
+        return result
+    }
+
 
 }

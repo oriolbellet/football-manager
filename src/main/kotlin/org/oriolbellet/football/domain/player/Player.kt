@@ -1,6 +1,6 @@
 package org.oriolbellet.football.domain.player
 
-import org.oriolbellet.football.adapter.out.model.Default
+import org.oriolbellet.football.domain.Default
 import org.oriolbellet.football.domain.team.Team
 import java.util.*
 

@@ -1,6 +1,6 @@
 package org.oriolbellet.football.domain.team
 
-import org.oriolbellet.football.adapter.out.model.Default
+import org.oriolbellet.football.domain.Default
 import org.oriolbellet.football.domain.player.Player
 import org.oriolbellet.football.error.ErrorCode
 import org.oriolbellet.football.error.TeamException
@@ -64,4 +64,5 @@ class Team(val name: String, squad: List<Player> = emptyList(), val lineUp: Line
         result = 31 * result + squad.hashCode()
         return result
     }
+
 }

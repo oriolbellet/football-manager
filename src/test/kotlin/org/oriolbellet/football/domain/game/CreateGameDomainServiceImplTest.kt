@@ -12,7 +12,7 @@ import org.mockito.Mock
 import org.mockito.Mockito.verify
 import org.mockito.Mockito.verifyNoInteractions
 import org.mockito.junit.jupiter.MockitoExtension
-import org.oriolbellet.football.application.service.capture
+import org.oriolbellet.football.capture
 import org.oriolbellet.football.domain.team.BasicTactics
 import org.oriolbellet.football.domain.team.LineUp
 import org.oriolbellet.football.domain.team.Team

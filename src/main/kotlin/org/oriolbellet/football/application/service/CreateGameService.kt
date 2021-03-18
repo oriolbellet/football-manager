@@ -18,7 +18,7 @@ open class CreateGameService(
 
     @Transactional
     override fun invoke(userTeamId: UUID): Game {
-        val teams = findTeams.findAllDefaultTeams()
+        val teams = findTeams.findAllDefault()
         val game = createGameDomainService(teams, userTeamId)
         return saveGame.save(game)
     }
