@@ -11,7 +11,7 @@ open class GetTeamsService(private val findTeams: FindTeams): GetTeamsUseCase {
 
     @Transactional
     override fun invoke(): List<Team> {
-        return this.findTeams.findAllDefaultTeams()
+        return this.findTeams.findAllDefault()
     }
 
 }

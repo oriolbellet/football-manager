@@ -1,6 +1,6 @@
 package org.oriolbellet.football.application.port.`in`
 
-import org.oriolbellet.football.domain.season.GameWeek
+import org.oriolbellet.football.domain.season.gameweek.GameWeek
 import java.util.*
 
 interface PlayGameWeekUseCase {

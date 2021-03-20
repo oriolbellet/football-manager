@@ -4,7 +4,7 @@ import org.oriolbellet.football.application.port.`in`.PlayGameWeekUseCase
 import org.oriolbellet.football.application.port.out.FindGame
 import org.oriolbellet.football.application.port.out.SaveGame
 import org.oriolbellet.football.domain.match.MatchAlgorithm
-import org.oriolbellet.football.domain.season.GameWeek
+import org.oriolbellet.football.domain.season.gameweek.GameWeek
 import org.oriolbellet.football.error.ErrorCode
 import org.oriolbellet.football.error.NotFoundException
 import java.util.*

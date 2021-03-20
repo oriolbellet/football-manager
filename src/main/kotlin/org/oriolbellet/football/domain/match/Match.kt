@@ -1,6 +1,6 @@
 package org.oriolbellet.football.domain.match
 
-import org.oriolbellet.football.adapter.out.model.Default
+import org.oriolbellet.football.domain.Default
 import org.oriolbellet.football.domain.match.MatchResult.*
 import org.oriolbellet.football.domain.team.Team
 import org.oriolbellet.football.error.ErrorCode.*
@@ -76,4 +76,28 @@ class Match(val homeTeam: Team, val awayTeam: Team, var score: Score? = null) {
         }
         this.score = score
     }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as Match
+
+        if (homeTeam != other.homeTeam) return false
+        if (awayTeam != other.awayTeam) return false
+        if (score != other.score) return false
+        if (matchId != other.matchId) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = homeTeam.hashCode()
+        result = 31 * result + awayTeam.hashCode()
+        result = 31 * result + (score?.hashCode() ?: 0)
+        result = 31 * result + (matchId?.hashCode() ?: 0)
+        return result
+    }
+
+
 }

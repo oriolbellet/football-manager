@@ -4,6 +4,6 @@ import org.oriolbellet.football.domain.team.Team
 
 interface FindTeams {
 
-    fun findAllDefaultTeams(): List<Team>
+    fun findAllDefault(): List<Team>
 
 }
