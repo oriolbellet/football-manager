@@ -16,7 +16,7 @@ import org.oriolbellet.football.capture
 import org.oriolbellet.football.domain.team.BasicTactics
 import org.oriolbellet.football.domain.team.LineUp
 import org.oriolbellet.football.domain.team.Team
-import org.oriolbellet.football.error.NotFoundException
+import org.oriolbellet.football.error.BadRequestException
 import java.util.*
 
 @ExtendWith(MockitoExtension::class)
@@ -64,7 +64,7 @@ internal class CreateGameDomainServiceImplTest {
         val userTeamId = UUID.fromString("1365d2b6-23c4-4fb9-ba8a-1998c4ff14b9")
 
         //When + Then
-        assertThrows<NotFoundException> { createGameDomainServiceImpl(teams, userTeamId) }
+        assertThrows<BadRequestException> { createGameDomainServiceImpl(teams, userTeamId) }
         verifyNoInteractions(gameFactory)
     }
 }
