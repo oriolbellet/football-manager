@@ -3,10 +3,10 @@ INSERT INTO LINEUP (LINEUP_ID, TACTIC) VALUES ('a945d329ae2843e8918deb44a9f49cf6
 INSERT INTO LINEUP (LINEUP_ID, TACTIC) VALUES ('db206792f40d49f6819f9ac1ff868d85','T442');
 INSERT INTO LINEUP (LINEUP_ID, TACTIC) VALUES ('a62b21f61dae4e1ca47a5055beae7e76','T532');
 
-INSERT INTO TEAM (TEAM_ID, name, line_up_lineup_id, `DEF`) VALUES ('01fdbce47d104916b71f13cf61bbffe8', 'FC Barcelona', '6f6d7e6942464b78860e8dd86d615ceb', true);
-INSERT INTO TEAM (TEAM_ID, name, line_up_lineup_id, `DEF`) VALUES ('1eb88008666611ebae930242ac130002', 'Real Madrid', 'a945d329ae2843e8918deb44a9f49cf6', true);
-INSERT INTO TEAM (TEAM_ID, name, line_up_lineup_id, `DEF`) VALUES ('cb743f6420fb443a96b0aebc0f47d6e1', 'Deportivo', 'db206792f40d49f6819f9ac1ff868d85', true);
-INSERT INTO TEAM (TEAM_ID, name, line_up_lineup_id, `DEF`) VALUES ('95fb07024bbf485f9f930167d8e8c2c9', 'Valencia CF', 'a62b21f61dae4e1ca47a5055beae7e76', true);
+INSERT INTO TEAM (TEAM_ID, name, line_up_lineup_id, DEF) VALUES ('01fdbce47d104916b71f13cf61bbffe8', 'FC Barcelona', '6f6d7e6942464b78860e8dd86d615ceb', true);
+INSERT INTO TEAM (TEAM_ID, name, line_up_lineup_id, DEF) VALUES ('1eb88008666611ebae930242ac130002', 'Real Madrid', 'a945d329ae2843e8918deb44a9f49cf6', true);
+INSERT INTO TEAM (TEAM_ID, name, line_up_lineup_id, DEF) VALUES ('cb743f6420fb443a96b0aebc0f47d6e1', 'Deportivo', 'db206792f40d49f6819f9ac1ff868d85', true);
+INSERT INTO TEAM (TEAM_ID, name, line_up_lineup_id, DEF) VALUES ('95fb07024bbf485f9f930167d8e8c2c9', 'Valencia CF', 'a62b21f61dae4e1ca47a5055beae7e76', true);
 
 INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('c34f805cd6e34c009ee3c0fa331a7c6f', 'Andoni Zubizarreta Urreta', 'Zubizarreta', 80, '01fdbce47d104916b71f13cf61bbffe8');
 INSERT INTO PLAYER (PLAYER_ID, name, alias, average, TEAM_ID) VALUES ('2e9b1ee48f1e49c8a3d8780f6e390303', 'Albert Ferrer Llopis', 'Ferrer', 84, '01fdbce47d104916b71f13cf61bbffe8');

@@ -18,17 +18,27 @@ spec:
           ports:
             - containerPort: 8080
           env:
-          - name: SPRING_RABBITMQ_HOST
-            value: rabbitmq-cluster-ip-service
+            - name: SPRING_RABBITMQ_HOST
+              value: rabbitmq-cluster-ip-service
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://postgresql:5432/gamedb
+            - name: SPRING_DATASOURCE_USERNAME
+              value: gamedb
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: postgres
+            - name: SPRING_DATASOURCE_DRIVER_CLASS_NAME
+              value: org.postgresql.Driver
+            - name: SPRING_JPA_HIBERNATE_DDL_AUTO
+              value: validate
 ---
 apiVersion: v1
 kind: Service
 metadata:
- name: football-cluster-ip-service
+  name: football-cluster-ip-service
 spec:
- type: ClusterIP
- ports:
-   - port: 8080
-     targetPort: 8080
- selector:
-   component: football
+  type: ClusterIP
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    component: football
