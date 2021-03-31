@@ -1,21 +1,36 @@
 version: '3'
 services:
- match-player:
-  image: oriolbellet/match-player:latest
-  environment:
-    SPRING_RABBITMQ_HOST: rabbitmq
-  depends_on:
-    - rabbitmq
- football-manager:
-  build: .
-  ports:
-    - "8080:8080"
-  environment:
-    SPRING_RABBITMQ_HOST: rabbitmq
-  depends_on:
-    - rabbitmq
- rabbitmq:
-  image: rabbitmq:management
-  ports:
-    - "5672:5672"
-    - "15672:15672"
+  match-player:
+    image: oriolbellet/match-player:latest
+    container_name: match-server
+    environment:
+      SPRING_RABBITMQ_HOST: rabbitmq
+  football-manager:
+    build: .
+    container_name: game-server
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/${DB_NAME}
+      SPRING_DATASOURCE_USERNAME: ${DB_USER}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PWD}
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver
+      SPRING_JPA_HIBERNATE_DDL_AUTO: validate
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+  postgres:
+    image: postgres
+    container_name: postgres
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PWD}
+      POSTGRES_DB: ${DB_NAME}
+volumes:
+  postgres:

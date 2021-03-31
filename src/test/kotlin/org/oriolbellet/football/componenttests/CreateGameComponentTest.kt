@@ -5,6 +5,7 @@ import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.oriolbellet.football.adapter.`in`.GameDto
 import org.oriolbellet.football.adapter.`in`.game.CreateGameController
@@ -31,6 +32,7 @@ class CreateGameComponentTest {
     lateinit var gameDao: GameDao
 
     @Test
+    @Disabled
     fun `when create game then created game exists in the DB`() {
         //Given
         val createGameDto = CreateGameController.CreateGameDto(UUID.fromString("cb743f64-20fb-443a-96b0-aebc0f47d6e1"))
