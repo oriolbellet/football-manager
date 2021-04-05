@@ -19,7 +19,11 @@ spec:
             - containerPort: 8080
           env:
             - name: SPRING_RABBITMQ_HOST
-              value: rabbitmq-cluster-ip-service
+              value: rabbitmq
+            - name: SPRING_RABBITMQ_USERNAME
+              value: user
+            - name: SPRING_RABBITMQ_PASSWORD
+              value: rabbitmq
             - name: SPRING_DATASOURCE_URL
               value: jdbc:postgresql://postgresql:5432/gamedb
             - name: SPRING_DATASOURCE_USERNAME
